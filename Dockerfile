@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:15.10
 
 MAINTAINER Ivan Vanderbyl <ivan@flood.io>
 
@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y \
         python-pip \
         python-scipy \
         git \
+        libhdf5-dev \
+        graphviz \
         && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -25,6 +27,9 @@ RUN pip --no-cache-dir install \
         ipykernel \
         jupyter \
         matplotlib \
+        h5py \
+        pydot-ng \
+        graphviz \
         && \
     python -m ipykernel.kernelspec
 
